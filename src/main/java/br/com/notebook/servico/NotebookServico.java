@@ -62,5 +62,9 @@ public class NotebookServico {
       public void excluirNotebook(@PathVariable Long id) {
 	   notebookRepositorio.deleteById(id);
    }
+      
+      public Notebook atualizarNotebooks(AtualizarNote notebook) {
+    	  return notebookRepositorio.save(modelMapper.map(notebook, Notebook.class));
+      }
 	
 }

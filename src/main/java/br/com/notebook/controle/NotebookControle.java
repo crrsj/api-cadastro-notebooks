@@ -5,11 +5,13 @@ import java.util.Map;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/notebook")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class NotebookControle {
 	
 	private final ModelMapper modelMapper;
@@ -57,8 +60,7 @@ public class NotebookControle {
 	}
 	
 	
-	@GetMapping
-	@PostMapping
+	@GetMapping	
 	@Operation(summary = "Endpoint responsável por buscar notebooks.") 
     @ApiResponse(responseCode = "200",description = " sucesso",content = {
    	@Content(mediaType = "application.json",schema = @Schema(implementation = ResponseEntity.class))
@@ -69,8 +71,7 @@ public class NotebookControle {
 	}
 	
 	
-	@GetMapping("/{id}")
-	@PostMapping
+	@GetMapping("/{id}")	
 	@Operation(summary = "Endpoint responsável por buscar notebook pelo id.") 
     @ApiResponse(responseCode = "200",description = " sucesso",content = {
    	@Content(mediaType = "application.json",schema = @Schema(implementation = ResponseEntity.class))
@@ -88,5 +89,15 @@ public class NotebookControle {
 	public ResponseEntity<Void>excluirNotebook(@PathVariable Long id){
 		notebookServico. excluirNotebook(id);
 		return ResponseEntity.noContent().build();
+	}
+	
+	@PutMapping
+	@Operation(summary = "Endpoint responsável por atualizar notebook (objeto inteiro).") 
+    @ApiResponse(responseCode = "200",description = " sucesso",content = {
+   	@Content(mediaType = "application.json",schema = @Schema(implementation = ResponseEntity.class))
+    })           
+	public ResponseEntity<AtualizarNote>atuaalizandoNotes(@RequestBody AtualizarNote atualizarNote){		
+		var atualize = notebookServico.atualizarNotebooks(atualizarNote);
+		return ResponseEntity.ok(modelMapper.map(atualize, AtualizarNote.class));
 	}
 }
