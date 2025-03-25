@@ -25,6 +25,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -42,7 +43,7 @@ public class NotebookControle {
     @ApiResponse(responseCode = "201",description = " sucesso",content = {
    	@Content(mediaType = "application.json",schema = @Schema(implementation = ResponseEntity.class))
     })           
-	public ResponseEntity<SalvarNotebook>salvarNotebookks(@RequestBody  SalvarNotebook salvarNotebook){
+	public ResponseEntity<SalvarNotebook>salvarNotebookks(@RequestBody @Valid SalvarNotebook salvarNotebook){
 		var salvar = notebookServico.salvarNotebook(salvarNotebook);
 		var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(salvar.getId()).toUri();
@@ -96,7 +97,7 @@ public class NotebookControle {
     @ApiResponse(responseCode = "200",description = " sucesso",content = {
    	@Content(mediaType = "application.json",schema = @Schema(implementation = ResponseEntity.class))
     })           
-	public ResponseEntity<AtualizarNote>atuaalizandoNotes(@RequestBody AtualizarNote atualizarNote){		
+	public ResponseEntity<AtualizarNote>atuaalizandoNotes(@RequestBody @Valid AtualizarNote atualizarNote){		
 		var atualize = notebookServico.atualizarNotebooks(atualizarNote);
 		return ResponseEntity.ok(modelMapper.map(atualize, AtualizarNote.class));
 	}

@@ -60,6 +60,7 @@ public class NotebookServico {
 	    }
 
       public void excluirNotebook(@PathVariable Long id) {
+    	  buscarPorId(id);
 	   notebookRepositorio.deleteById(id);
    }
       
