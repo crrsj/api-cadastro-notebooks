@@ -1,3 +1,3 @@
 API-para gerenciamento de cadastro de notebooks
-![note1](https://github.com/user-attachments/assets/c736d361-02a9-4c5f-b53b-b75c6e6d7425)
-![note2](https://github.com/user-attachments/assets/0597285d-ae1a-4754-aa9d-92f8bb61b08f)
+![note9](https://github.com/user-attachments/assets/15c63354-a43e-487b-ba28-a56f733aecc7)
+![note10](https://github.com/user-attachments/assets/3a6b9b65-b2ec-47e3-bd3c-fa8e28935cd5)
