@@ -2,6 +2,7 @@ package br.com.notebook.dto;
 
 import br.com.notebook.enums.Marca;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,14 +10,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AtualizarNote {
 
-	private Long id;
-	@NotBlank(message  = "não pode estar em branco")
+	private Long id;	
 	private Marca marca;
 	@NotBlank(message  = "não pode estar em branco")
 	private String modelo;
 	@NotBlank(message  = "não pode estar em branco")
-	private String memoria;
+	private String processador;
+	@NotBlank(message  = "não pode estar em branco")
+	private String memoria;	
 	@NotBlank(message  = "não pode estar em branco")
 	private String ssd;
+	@NotNull(message = "Não pode ser nulo")
+	private Integer estoque;
 	private Double total;
 }

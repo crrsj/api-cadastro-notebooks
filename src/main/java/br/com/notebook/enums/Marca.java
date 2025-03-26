@@ -4,6 +4,7 @@ public enum Marca {
 	AZUS,
 	POSITIVO,
 	DELL,
-	LENOVO;
+	LENOVO,
+	APPLE;
 
 }

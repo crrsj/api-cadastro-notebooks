@@ -6,4 +6,6 @@ import br.com.notebook.entidade.Notebook;
 
 public interface NotebookRepositorio extends JpaRepository<Notebook, Long> {
 
+	
+
 }

@@ -20,12 +20,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.com.notebook.dto.AtualizarNote;
 import br.com.notebook.dto.BuscarNotebook;
 import br.com.notebook.dto.SalvarNotebook;
+import br.com.notebook.enums.Marca;
 import br.com.notebook.servico.NotebookServico;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -101,4 +103,6 @@ public class NotebookControle {
 		var atualize = notebookServico.atualizarNotebooks(atualizarNote);
 		return ResponseEntity.ok(modelMapper.map(atualize, AtualizarNote.class));
 	}
+	
+
 }

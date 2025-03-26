@@ -21,7 +21,9 @@ public class Notebook {
 	@Enumerated(EnumType.STRING)
 	private Marca marca;	
 	private String modelo;
+	private String processador;
 	private String memoria;
 	private String ssd;
+	private Integer estoque;
 	private Double total;
 }

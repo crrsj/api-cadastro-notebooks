@@ -67,5 +67,6 @@ public class NotebookServico {
       public Notebook atualizarNotebooks(AtualizarNote notebook) {
     	  return notebookRepositorio.save(modelMapper.map(notebook, Notebook.class));
       }
+   
 	
 }
